@@ -58,45 +58,9 @@ bot.on('message', async (message) => {
         }
     }
 
-    try {
-        var mentionedUser = message.mentions.users.first()
-
-        var bonk = message.guild.emojis.cache.find(emoji => emoji.name === 'bonk')
-        if (mentionedUser.id === '749878984237383720') {
-            message.delete()
-            message.channel.send(`${bonk} ${message.author} You are not allowed to ping NicholasDrout in chat. Continuing will result into a mute.`)
-        }
-
-        var messageWarnEmbed = new Discord.MessageEmbed()
-            .setColor('BLUE')
-            .setDescription('Hey, please don’t ping NicholasDrout in chat.')
-            .addField('If you would like to contact him you can use the methods below:', '- DM a staff member to get your message through', 'Use modmail.')
-        await user.send(messageWarnEmbed)
-    } catch (err) {
-        console.warn(err)
-    }
-
-    var array = ['fuck', 'bitch', 'fucking', 'Nigeria']
-    if (!message.member.hasPermission('MANAGE_MESSAGES')) return;
-    var bonk = message.guild.emojis.cache.find(emoji => emoji.name === 'bonk')
-    if (array.some(w => `${message.content.toLowerCase()}`.includes(`${w}`))) {
-        message.delete();
-        message.channel.send(`${bonk} ${message.author}, Nicholas's World is a family friendly server and don't use that kind of language. Continuing will result into a mute.`)
 
 
-        var reason = ('Warning from Auto Mod | Using Filtered Language')
-        var filterEmbed = new Discord.MessageEmbed()
-            .setColor(0xFFA500)
-            .setTitle('You have been warned in Nicholas\'s World')
-            .setDescription('You received a warning from the moderation system')
-            .addField('Reason:', '[AutoMod] Using filtered words')
-            .addField("Expires", '\', `24h`')
-        try {
-            message.author.send(filterEmbed)
-        } catch (err) {
-            console.warn(err)
-        }
-    }
+
 
    
 
